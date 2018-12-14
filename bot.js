@@ -18,6 +18,21 @@ function respond() {
   }
 }
 
+function respond1() {
+  var request = JSON.parse(this.req.chunks[0]),
+      botRegex = /^\/smile$/;
+
+  if(request.text && botRegex.test(request.text)) {
+    this.res.writeHead(200);
+    return ':)';
+    this.res.end();
+  } else {
+    console.log("don't care");
+    this.res.writeHead(200);
+    this.res.end();
+  }
+}
+
 function postMessage() {
   var botResponse, options, body, botReq;
 
